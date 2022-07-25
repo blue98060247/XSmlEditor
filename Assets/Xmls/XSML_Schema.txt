@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchema1"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.1"
+>
+  <xs:element name="Chapter">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Character" type="xs:string" maxOccurs="unbounded"></xs:element>
+        <xs:element name="Dialogue" type="xs:string" maxOccurs="unbounded"></xs:element>
+        
+        <xs:element name="SelectPart" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Options" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name ="OptionCondition" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ParamsContent" type="xs:string"></xs:element>
+                          <xs:element name="ParamsData" type="xs:int"></xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="OptionString" type="xs:string"></xs:element>
+                    <xs:element name="Jump" type="xs:string" minOccurs="0" ></xs:element>
+                    <xs:element name="ParamsData" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ParamsContent" type="xs:string"></xs:element>
+                          <xs:element name="ParamsData" type="xs:int"></xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Dialogue" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+                  </xs:sequence>
+                </xs:complexType>               
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:attribute name="chapterID" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

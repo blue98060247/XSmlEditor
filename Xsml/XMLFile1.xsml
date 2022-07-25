@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Chapter chapterID ="TestChapter"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="XSML_Schema.xsd">
+  <Character>雷薩</Character>
+  <Dialogue>這是測試!</Dialogue>
+  <Character>葉希</Character>
+  <Dialogue>選擇以下一個選項吧！</Dialogue>
+  <SelectPart>
+    <Options>
+      <OptionString>選項1</OptionString>
+      <Dialogue>我選了選項1</Dialogue>
+    </Options>
+    <Options>
+      <OptionString>選項2</OptionString>
+      <Dialogue>我選了選項2</Dialogue>
+    </Options>
+    <Options>
+      <OptionString>離開此章節</OptionString>
+      <Jump>TestChapterTo</Jump>
+      <Dialogue>我選了選項3</Dialogue>
+    </Options>
+  </SelectPart>
+  <Dialogue>測試結束~</Dialogue>
+</Chapter>
