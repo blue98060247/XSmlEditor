@@ -1,0 +1,8 @@
+主程式中的「story」模組本體(story-main)會對xsmlReader提出請求，等待xsml讀取完所有的xsml
+xsmlReader會一口氣讀完對象資料夾中所有的xsml檔
+xsmlReader會使用xmlApi來操作xml檔
+story-main對故事進行讀寫皆須經過xsmlReader，
+然後xsmlReader對xml檔案的讀寫則透過xmlApi來完成
+
+當xsmlReader在初始化xmlApi的時候
+須將xsml的schema交給xmlApi

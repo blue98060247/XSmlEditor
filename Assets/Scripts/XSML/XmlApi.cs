@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 #region"Xml Apis"
@@ -12,6 +12,7 @@ public class XmlApi
 {
     private XmlSchemaSet xmlSchema;
     private XmlReaderSettings settings;
+    private Dictionary<string,XmlTree> xmlTreeDict;
 
     private bool failed = false;
     public XmlApi(TextAsset xmlSchema){
@@ -28,20 +29,32 @@ public class XmlApi
     public bool AddXml(string path){
         failed = false;
         XmlReader reader = XmlReader.Create(path, settings);
+        XmlTree newXmlTree = null;
         //reader.
         // Parse the file.
         try{
             while (reader.Read()) {
+                //Global.logger.WriteLog($"type: {reader.NodeType}");
                 if (reader.IsStartElement()) {
                     if (reader.IsEmptyElement)
                     {
-                        Global.logger.WriteLog($"<{reader.Name}/>");
+                        Global.logger.WriteLog($"get empty element: <{reader.Name}/>");
                     }
                     else {
-                        Global.logger.WriteLog($"<{reader.Name}> ");
+                        string name = reader.Name;
+                        //Global.logger.WriteLog($"<{reader.Name}>");
+                        //if(reader.HasAttributes){
+                        //    for(int i = 0; i < reader.AttributeCount; i++){
+                        //        
+                        //        Global.logger.WriteLog($"<{reader.GetAttribute(i)}>");
+                        //    }
+                        //}
                         reader.Read(); // Read the start tag.
                         if (reader.IsStartElement())  // Handle nested elements.
-                            Global.logger.WriteLog($"\r\n<{reader.Name}>");
+                        {
+                            //Global.logger.WriteLog($"\r\n<{reader.Name}>");
+
+                        }
                         Global.logger.WriteLog(reader.ReadString());  //Read the text content of the element.
                     }
                 }
@@ -51,6 +64,8 @@ public class XmlApi
         }
         return !failed;
     }
+
+    //private void AddNewTree()
 
     private void settingsValidationEventHandler(object sender, ValidationEventArgs e)
     {
@@ -66,5 +81,34 @@ public class XmlApi
             Global.logger.WriteLog(e.Message);
             failed = true;
         }
+    }
+}
+
+public class XmlTree{
+    public string node {get;private set;}
+    public string value {get;private set;}
+    public XmlTree[] leaf {get;private set;}
+    public int nextPointer;
+    
+    public XmlTree(string node){
+        this.node = node;
+    }
+
+    public void SetTree(XmlTree[] leaf, int next = 0){
+        this.leaf = leaf;
+        this.nextPointer = next;
+    }
+
+    public void SetTree(XmlTree leaf){
+        this.leaf = new XmlTree[] { leaf };
+        this.nextPointer = 0;
+    }
+    
+    public void SetValue(string value){
+
+    }
+
+    public XmlTree GetNext(){
+        return leaf[nextPointer];
     }
 }
