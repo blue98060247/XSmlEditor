@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\StoryTree\StoryTreeNode.cs" />
      <Compile Include="Assets\Scripts\XSML\XSMLReader.cs" />
      <Compile Include="Assets\Scripts\XSML\XmlApi.cs" />
+     <Compile Include="Assets\Scripts\XSML\XmlTree.cs" />
      <None Include="Assets\Xmls\XSML_Schema.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.38f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
