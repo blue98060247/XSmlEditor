@@ -1,0 +1,56 @@
+{
+    "title" : "測試",
+    "key" : "test",
+    "SJParts" : [
+        {
+            "key": "0",
+            "Character": "雷薩"
+        },
+        {
+            "key": "1",
+            "Dialogue": "這是測試!"
+        },
+        {
+            "key": "1",
+            "Character": "葉希"
+        },
+        {
+            "key": "1",
+            "Dialogue": "選擇以下一個選項吧!"
+        },
+        {
+            "part": [
+                {
+                    "OptionString": "選項1",
+                    "setCharacter": "雷薩",
+                    "dialogue": {
+                        "key": "1",
+                        "Dialogue": "我選了選項1"
+                    }
+                },
+                {
+                    "OptionString": "選項2",
+                    "dialogue": {
+                        "key": "1",
+                        "Dialogue": "你選了選項2"
+                    }
+                },
+                {
+                    "OptionString": "離開此章節",
+                    "dialogue": {
+                        "key": "1",
+                        "Dialogue": "我選了選項3"
+                    },
+                    "jump": {
+                        "key": "1",
+                        "jumpKey": "TestChapterTo"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "1",
+            "Dialogue": "測試結束~"
+        }
+    ]
+}

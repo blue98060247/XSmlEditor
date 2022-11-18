@@ -38,7 +38,7 @@ public class XmlApi
                 if (reader.IsStartElement()) {
                     if (reader.IsEmptyElement)
                     {
-                        Global.logger.WriteLog($"get empty element: <{reader.Name}/>");
+                        Global.Log($"get empty element: <{reader.Name}/>");
                     }
                     else {
                         string name = reader.Name;
@@ -55,7 +55,7 @@ public class XmlApi
                             //Global.logger.WriteLog($"\r\n<{reader.Name}>");
 
                         }
-                        Global.logger.WriteLog(reader.ReadString());  //Read the text content of the element.
+                        Global.Log(reader.ReadString());  //Read the text content of the element.
                     }
                 }
             }       
@@ -71,14 +71,14 @@ public class XmlApi
     {
         if (e.Severity == XmlSeverityType.Warning)
         {
-            Global.logger.WriteLog("WARNING: ");
-            Global.logger.WriteLog(e.Message);
+            Global.Log("WARNING: ");
+            Global.Log(e.Message);
             failed = true;
         }
         else if (e.Severity == XmlSeverityType.Error)
         {
-            Global.logger.WriteLog("ERROR: ");
-            Global.logger.WriteLog(e.Message);
+            Global.Log("ERROR: ");
+            Global.Log(e.Message);
             failed = true;
         }
     }

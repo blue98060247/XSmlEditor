@@ -13,7 +13,8 @@ public class Initialize : MonoBehaviour
 
     private void Init(){
         GlobalInit();
-        XSMLInit();
+        //XSMLInit();
+        SJsonInit();
     }
 
     private void GlobalInit(){
@@ -24,5 +25,10 @@ public class Initialize : MonoBehaviour
         Global.xsmlReader = new XSMLReader();
         Global.xsmlReader.xsmlSchema = xsmlScheme;
         Global.xsmlReader.Awake();
+    }
+
+    private void SJsonInit(){
+        Global.SJSonReader = new SJSon();
+        Global.SJSonReader.Awake();
     }
 }
