@@ -84,31 +84,3 @@ public class XmlApi
     }
 }
 
-public class XmlTree{
-    public string node {get;private set;}
-    public string value {get;private set;}
-    public XmlTree[] leaf {get;private set;}
-    public int nextPointer;
-    
-    public XmlTree(string node){
-        this.node = node;
-    }
-
-    public void SetTree(XmlTree[] leaf, int next = 0){
-        this.leaf = leaf;
-        this.nextPointer = next;
-    }
-
-    public void SetTree(XmlTree leaf){
-        this.leaf = new XmlTree[] { leaf };
-        this.nextPointer = 0;
-    }
-    
-    public void SetValue(string value){
-
-    }
-
-    public XmlTree GetNext(){
-        return leaf[nextPointer];
-    }
-}
