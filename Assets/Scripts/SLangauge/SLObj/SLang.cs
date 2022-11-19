@@ -48,7 +48,7 @@ public class SLang{
             SLStory temp = new SLStory(slangString);
         }
         catch (Exception e){
-            Global.Log($"Load SJson Error! get error: {e.Message}, \nat line {e.StackTrace}");
+            Global.Log($"Load SLang Error! get error: {e.Message}, \nat line {e.StackTrace}");
         }
     }
 }
